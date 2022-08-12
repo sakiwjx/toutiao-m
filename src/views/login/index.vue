@@ -25,14 +25,18 @@
       >
         <i slot="left-icon" class="toutiao toutiao-yanzhengma"></i>
         <template #button>
-          <van-count-down :time="time" format="ss s" v-if="isCountDown" />
+          <van-count-down
+            :time="time"
+            format="ss s"
+            v-if="isCountDown"
+            @finish="isCountDown = false"
+          />
           <van-button
             class="send-sms-btn"
             size="small"
             type="primary"
             v-else
             @click="sentBtn"
-            @finish="isCountDown = false"
             >发送验证码</van-button
           >
         </template>
